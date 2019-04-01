@@ -54,7 +54,7 @@ $GOSU ./node_modules/.bin/sequelize db:migrate
 if [ "$UID" -eq 0 ] && [ "$CMD_IMAGE_UPLOAD_TYPE" = "filesystem" ]; then
     if [ "$UID" -eq 0 ]; then
         chown -R hedgedoc ./public/uploads
-        chmod 700 ./public/uploads
+        chmod -R $UPLOADS_MODE ./public/uploads
     else
         echo "
             #################################################################
