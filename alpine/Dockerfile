@@ -3,8 +3,9 @@ FROM node:16.13.0-alpine@sha256:3bca55259ada636e5fee8f2836aba7fa01fed7afd0652e12
 FROM base AS builder
 # Build arguments to change source url, branch or tag
 ARG CODIMD_REPOSITORY
-ARG HEDGEDOC_REPOSITORY=https://github.com/hedgedoc/hedgedoc.git
-ARG VERSION=master
+# ARG HEDGEDOC_REPOSITORY=https://github.com/hedgedoc/hedgedoc.git
+ARG HEDGEDOC_REPOSITORY=https://github.com/magcho/hedgedoc.git
+ARG VERSION=1.9.0+mod
 RUN if [ -n "${CODIMD_REPOSITORY}" ]; then echo "CODIMD_REPOSITORY is deprecated. Please use HEDGEDOC_REPOSITORY instead" && exit 1; fi
 
 # Clone the source and remove git repository but keep the HEAD file
